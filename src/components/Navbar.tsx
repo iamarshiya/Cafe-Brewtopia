@@ -15,30 +15,30 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <Coffee className="w-5 h-5 text-primary-foreground" />
+          <a href="#home" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 border border-primary flex items-center justify-center group-hover:bg-primary/10 transition-all duration-500">
+              <Coffee className="w-5 h-5 text-primary" />
             </div>
-            <span className="font-serif text-xl md:text-2xl text-foreground">Brewtopia</span>
+            <span className="font-serif text-xl md:text-2xl text-foreground tracking-wide">Brewtopia</span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm font-medium"
+                className="text-muted-foreground hover:text-primary transition-colors duration-500 text-sm tracking-[0.15em] uppercase"
               >
                 {link.label}
               </a>
             ))}
             <Button variant="hero" size="lg">
-              Order Now
+              Reserve
             </Button>
           </div>
 
@@ -55,23 +55,23 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         <div
           className={cn(
-            "md:hidden overflow-hidden transition-all duration-300",
-            isOpen ? "max-h-96 pb-4" : "max-h-0"
+            "md:hidden overflow-hidden transition-all duration-500",
+            isOpen ? "max-h-96 pb-6" : "max-h-0"
           )}
         >
-          <div className="flex flex-col gap-4 pt-4">
+          <div className="flex flex-col gap-6 pt-6 border-t border-border/30">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-base font-medium"
+                className="text-muted-foreground hover:text-primary transition-colors duration-500 text-sm tracking-[0.15em] uppercase"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
               </a>
             ))}
             <Button variant="hero" size="lg" className="w-full mt-2">
-              Order Now
+              Reserve
             </Button>
           </div>
         </div>
