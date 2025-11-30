@@ -4,77 +4,79 @@ import cafeInterior from "@/assets/cafe-interior.jpg";
 const values = [
   {
     icon: Heart,
-    title: "Passion First",
-    description: "Every cup is crafted with love and dedication to the perfect brew.",
+    title: "Heritage",
+    description: "Time-honored techniques passed through generations of master roasters.",
   },
   {
     icon: Users,
-    title: "Community Hub",
-    description: "More than a cafe—a gathering place for friends, creatives, and neighbors.",
+    title: "Exclusivity",
+    description: "An intimate gathering place for those who appreciate the finer things.",
   },
   {
     icon: Award,
-    title: "Quality Beans",
-    description: "Ethically sourced, single-origin beans roasted to perfection.",
+    title: "Provenance",
+    description: "Single-estate beans from the world's most distinguished growing regions.",
   },
   {
     icon: Leaf,
-    title: "Sustainable",
-    description: "Committed to eco-friendly practices from farm to cup.",
+    title: "Sustainability",
+    description: "Committed to ethical sourcing and environmental stewardship.",
   },
 ];
 
 const About = () => {
   return (
-    <section id="about" className="py-20 md:py-32 bg-background">
+    <section id="about" className="py-24 md:py-32 gradient-warm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Image */}
           <div className="relative animate-fade-in">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-warm">
+            <div className="aspect-[4/3] overflow-hidden border border-border shadow-gold">
               <img
                 src={cafeInterior}
-                alt="Cozy Brewtopia cafe interior with warm lighting and happy customers"
+                alt="Elegant Brewtopia interior with vintage ambiance and refined patrons"
                 className="w-full h-full object-cover"
               />
             </div>
             {/* Floating Card */}
-            <div className="absolute -bottom-6 -right-6 bg-card p-6 rounded-xl shadow-warm max-w-xs hidden md:block">
-              <p className="font-serif text-lg text-card-foreground italic">
-                "The best coffee in town, and the coziest atmosphere!"
+            <div className="absolute -bottom-8 -right-8 bg-card border border-primary/30 p-8 max-w-xs hidden md:block shadow-gold">
+              <p className="font-serif text-lg text-card-foreground italic leading-relaxed">
+                "A sanctuary of sophistication in a world of haste."
               </p>
-              <p className="text-sm text-muted-foreground mt-2">— Sarah M., Regular</p>
+              <div className="mt-4 pt-4 border-t border-border/50">
+                <p className="text-xs text-muted-foreground tracking-[0.2em] uppercase">— Portland Quarterly</p>
+              </div>
             </div>
           </div>
 
           {/* Content */}
           <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <span className="inline-block px-4 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-              Our Story
+            <span className="inline-block px-6 py-2 border border-primary/40 text-primary text-xs tracking-[0.3em] uppercase mb-6">
+              Our Legacy
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-foreground mb-6 leading-tight">
-              A Cup of Coffee, A World of Connection
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-foreground mb-8 leading-tight">
+              A Commitment to <span className="italic text-primary">Timeless Excellence</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-              Founded in 2019, Brewtopia started as a dream to create more than just another coffee shop. We wanted to build a sanctuary where people could escape the rush, savor exceptional coffee, and connect with their community.
+            <p className="text-muted-foreground text-lg mb-6 leading-relaxed font-light">
+              Established in 2019, Brewtopia was founded upon the principle that exceptional coffee deserves an equally exceptional setting. We created not merely a café, but a retreat for the discerning.
             </p>
-            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              Today, we proudly serve hundreds of neighbors daily, each cup poured with the same passion and care as our very first brew.
+            <p className="text-muted-foreground text-lg mb-10 leading-relaxed font-light">
+              Today, we remain devoted to our founding vision—serving only the most distinguished single-origin coffees in an atmosphere of understated elegance.
             </p>
 
             {/* Values Grid */}
             <div className="grid sm:grid-cols-2 gap-6">
-              {values.map((value, index) => (
+              {values.map((value) => (
                 <div
                   key={value.title}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors duration-300"
+                  className="flex items-start gap-4 p-5 border border-border/50 hover:border-primary/30 transition-colors duration-500"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                    <value.icon className="w-5 h-5 text-accent" />
+                  <div className="w-10 h-10 border border-primary/30 flex items-center justify-center flex-shrink-0">
+                    <value.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-foreground mb-1">{value.title}</h3>
-                    <p className="text-sm text-muted-foreground">{value.description}</p>
+                    <h3 className="font-serif text-foreground mb-1">{value.title}</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{value.description}</p>
                   </div>
                 </div>
               ))}
