@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet-async";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import FeaturedDrinks from "@/components/FeaturedDrinks";
-import About from "@/components/About";
-import Location from "@/components/Location";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import FeaturedDrinks from "../components/FeaturedDrinks";
+import About from "../components/About";
+import Location from "../components/Location";
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 const Index = () => {
   return (
@@ -67,4 +67,3 @@ const Index = () => {
 };
 
 export default Index;
-import React from "react";

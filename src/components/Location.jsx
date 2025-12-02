@@ -1,5 +1,5 @@
 import { Clock, MapPin, Phone, Wifi, Car, CreditCard } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 
 const hours = [
   { day: "Monday – Friday", time: "7:00 AM – 9:00 PM" },
