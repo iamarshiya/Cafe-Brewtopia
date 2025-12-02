@@ -1,42 +1,35 @@
 import { Heart, Users, Award, Leaf } from "lucide-react";
-import cafeInterior from "@/assets/cafe-interior.jpg";
-
+import cafeInterior from "../assets/cafe-interior.jpg";
 const values = [
-  {
-    icon: Heart,
-    title: "Heritage",
-    description: "Time-honored techniques passed through generations of master roasters.",
-  },
-  {
-    icon: Users,
-    title: "Exclusivity",
-    description: "An intimate gathering place for those who appreciate the finer things.",
-  },
-  {
-    icon: Award,
-    title: "Provenance",
-    description: "Single-estate beans from the world's most distinguished growing regions.",
-  },
-  {
-    icon: Leaf,
-    title: "Sustainability",
-    description: "Committed to ethical sourcing and environmental stewardship.",
-  },
+    {
+        icon: Heart,
+        title: "Heritage",
+        description: "Time-honored techniques passed through generations of master roasters.",
+    },
+    {
+        icon: Users,
+        title: "Exclusivity",
+        description: "An intimate gathering place for those who appreciate the finer things.",
+    },
+    {
+        icon: Award,
+        title: "Provenance",
+        description: "Single-estate beans from the world's most distinguished growing regions.",
+    },
+    {
+        icon: Leaf,
+        title: "Sustainability",
+        description: "Committed to ethical sourcing and environmental stewardship.",
+    },
 ];
-
 const About = () => {
-  return (
-    <section id="about" className="py-24 md:py-32 gradient-warm">
+    return (<section id="about" className="py-24 md:py-32 gradient-warm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Image */}
           <div className="relative animate-fade-in">
             <div className="aspect-[4/3] overflow-hidden border border-border shadow-gold">
-              <img
-                src={cafeInterior}
-                alt="Elegant Brewtopia interior with vintage ambiance and refined patrons"
-                className="w-full h-full object-cover"
-              />
+              <img src={cafeInterior} alt="Elegant Brewtopia interior with vintage ambiance and refined patrons" className="w-full h-full object-cover"/>
             </div>
             {/* Floating Card */}
             <div className="absolute -bottom-8 -right-8 bg-card border border-primary/30 p-8 max-w-xs hidden md:block shadow-gold">
@@ -66,26 +59,19 @@ const About = () => {
 
             {/* Values Grid */}
             <div className="grid sm:grid-cols-2 gap-6">
-              {values.map((value) => (
-                <div
-                  key={value.title}
-                  className="flex items-start gap-4 p-5 border border-border/50 hover:border-primary/30 transition-colors duration-500"
-                >
+              {values.map((value) => (<div key={value.title} className="flex items-start gap-4 p-5 border border-border/50 hover:border-primary/30 transition-colors duration-500">
                   <div className="w-10 h-10 border border-primary/30 flex items-center justify-center flex-shrink-0">
-                    <value.icon className="w-5 h-5 text-primary" />
+                    <value.icon className="w-5 h-5 text-primary"/>
                   </div>
                   <div>
                     <h3 className="font-serif text-foreground mb-1">{value.title}</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">{value.description}</p>
                   </div>
-                </div>
-              ))}
+                </div>))}
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
 };
-
 export default About;
