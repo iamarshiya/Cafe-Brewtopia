@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Coffee } from "lucide-react";
+import { Menu, X, Coffee, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import CartDropdown from "@/components/CartDropdown";
@@ -40,10 +40,8 @@ const Navbar = () => {
               </a>
             ))}
             <CartDropdown />
-            <Link to="/auth">
-              <Button variant="outline" size="lg">
-                Sign In
-              </Button>
+            <Link to="/auth" className="p-2 text-muted-foreground hover:text-primary transition-colors duration-300">
+              <User className="w-5 h-5" />
             </Link>
             <Link to="/reserve">
               <Button variant="hero" size="lg">
@@ -80,11 +78,12 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <Link to="/auth" className="w-full mt-2">
-              <Button variant="outline" size="lg" className="w-full">
-                Sign In
-              </Button>
-            </Link>
+            <div className="flex items-center gap-4 mt-2">
+              <Link to="/auth" className="p-2 text-muted-foreground hover:text-primary transition-colors duration-300">
+                <User className="w-5 h-5" />
+              </Link>
+              <CartDropdown />
+            </div>
             <Link to="/reserve" className="w-full mt-2">
               <Button variant="hero" size="lg" className="w-full">
                 Reserve
