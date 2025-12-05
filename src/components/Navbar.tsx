@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 import CartDropdown from "@/components/CartDropdown";
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#menu", label: "Menu" },
-  { href: "#about", label: "About" },
-  { href: "#location", label: "Visit Us" },
-  { href: "#contact", label: "Contact" },
+  { href: "#home", label: "Home", isRoute: false },
+  { href: "/menu", label: "Menu", isRoute: true },
+  { href: "#about", label: "About", isRoute: false },
+  { href: "#location", label: "Visit Us", isRoute: false },
+  { href: "#contact", label: "Contact", isRoute: false },
 ];
 
 const Navbar = () => {
@@ -30,15 +30,25 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-500 text-sm tracking-[0.15em] uppercase"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.isRoute ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-muted-foreground hover:text-primary transition-colors duration-500 text-sm tracking-[0.15em] uppercase"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-muted-foreground hover:text-primary transition-colors duration-500 text-sm tracking-[0.15em] uppercase"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
             <CartDropdown />
             <Link to="/auth" className="p-2 text-muted-foreground hover:text-primary transition-colors duration-300">
               <User className="w-5 h-5" />
@@ -68,16 +78,27 @@ const Navbar = () => {
           )}
         >
           <div className="flex flex-col gap-6 pt-6 border-t border-border/30">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-500 text-sm tracking-[0.15em] uppercase"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.isRoute ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-muted-foreground hover:text-primary transition-colors duration-500 text-sm tracking-[0.15em] uppercase"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-muted-foreground hover:text-primary transition-colors duration-500 text-sm tracking-[0.15em] uppercase"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </a>
+              )
+            )}
             <div className="flex items-center gap-4 mt-2">
               <Link to="/auth" className="p-2 text-muted-foreground hover:text-primary transition-colors duration-300">
                 <User className="w-5 h-5" />
