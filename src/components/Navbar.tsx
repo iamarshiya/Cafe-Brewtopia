@@ -40,6 +40,11 @@ const Navbar = () => {
               </a>
             ))}
             <CartDropdown />
+            <Link to="/auth">
+              <Button variant="outline" size="lg">
+                Sign In
+              </Button>
+            </Link>
             <Link to="/reserve">
               <Button variant="hero" size="lg">
                 Reserve
@@ -75,6 +80,11 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
+            <Link to="/auth" className="w-full mt-2">
+              <Button variant="outline" size="lg" className="w-full">
+                Sign In
+              </Button>
+            </Link>
             <Link to="/reserve" className="w-full mt-2">
               <Button variant="hero" size="lg" className="w-full">
                 Reserve
