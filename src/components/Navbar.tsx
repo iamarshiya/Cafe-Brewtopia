@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Coffee } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
+import CartDropdown from "@/components/CartDropdown";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -37,9 +39,12 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <Button variant="hero" size="lg">
-              Reserve
-            </Button>
+            <CartDropdown />
+            <Link to="/reserve">
+              <Button variant="hero" size="lg">
+                Reserve
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -70,9 +75,11 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <Button variant="hero" size="lg" className="w-full mt-2">
-              Reserve
-            </Button>
+            <Link to="/reserve" className="w-full mt-2">
+              <Button variant="hero" size="lg" className="w-full">
+                Reserve
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -2,6 +2,8 @@ import { Coffee, Leaf, Sparkles } from "lucide-react";
 import latteArt from "@/assets/latte-art.jpg";
 import icedCoffee from "@/assets/iced-coffee.jpg";
 import pastryCoffee from "@/assets/pastry-coffee.jpg";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "sonner";
 
 const drinks = [
   {
@@ -34,6 +36,19 @@ const drinks = [
 ];
 
 const FeaturedDrinks = () => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (drink: typeof drinks[0]) => {
+    const priceNumber = parseInt(drink.price.replace("$", ""));
+    addToCart({
+      id: drink.id,
+      name: drink.name,
+      price: priceNumber,
+      image: drink.image,
+    });
+    toast.success(`${drink.name} added to cart`);
+  };
+
   return (
     <section id="menu" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,7 +99,10 @@ const FeaturedDrinks = () => {
                 </p>
                 <div className="flex items-center justify-between pt-4 border-t border-border/50">
                   <span className="text-2xl font-serif text-primary">{drink.price}</span>
-                  <button className="text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-500">
+                  <button 
+                    onClick={() => handleAddToCart(drink)}
+                    className="text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-500"
+                  >
                     Add to Order →
                   </button>
                 </div>
